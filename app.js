@@ -8,8 +8,10 @@ var api         = require('gettyimages-api');
 
 app.set('view engine', 'ejs');
 
-//mongoose.connect('mongodb://localhost/searchTerm');
-mongoose.connect('mongodb://ivilinchuk:igorito@ds145380.mlab.com:45380/image_search_abstraction_layer');
+
+var url = process.env.DATABASEURL || 'mongodb://localhost/searchTerm';
+mongoose.connect(url);
+//mongoose.connect('mongodb://ivilinchuk:igorito@ds145380.mlab.com:45380/image_search_abstraction_layer');
 
 
 app.use(express.static(__dirname + "/public"));
@@ -33,12 +35,14 @@ app.get('/api/imagesearch/:searchVal*', (req, res)=>{
     var offset = req.query.offset;
     
     //API JSON response
+    //For the security purposes all API process.env are global and can be configured by the dev
     
-    var creds = {   apiKey: "vz94a54hd7cwtpjucyw369fu", 
-                    apiSecret: "c2jp3uA5pthbZ9FQmdVW99wwwWWQ3m2KbY8TxvFqNGVZd", 
-                    username: "Villian79", 
-                    password: "i#oRV123$%" 
-                };
+    var creds = {   apiKey: process.env.APIKEY,
+                    apiSecret: process.env.APISECRET,
+                    username: process.env.APIUSERNAME,
+                    password: process.env.APIPASSWORD
+    };
+    
     var client = new api(creds);
     client.search().images().withPage(offset).withPageSize(10).withPhrase(searchVal).execute(function(err, response) {
         if (err) throw err;
