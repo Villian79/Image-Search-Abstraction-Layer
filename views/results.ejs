@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>URL Shortener Microservice</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div>
+                        <h3>Bellow is the list of results to visualize your search</h3>
+                        
+                    </div>
+                    <% result.forEach(function(el){ %>
+                        <div class="media">
+                            <div class="media-left media-bottom">
+                                <a href='#'>
+                                  <img class="media-object" src=<%= el.thumbnail %> alt=<%= el.snippet %>>
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4><%= el.snippet %></h4>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

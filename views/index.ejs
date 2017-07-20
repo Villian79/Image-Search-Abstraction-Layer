@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <title>URL Shortener Microservice</title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-lg-12">
+                    <h1><a href="https://www.freecodecamp.com" target="blank">Freecodecamp API challenges: "Image Search Abstraction Layer"</a></h1>
+                    <h5 class="text-right"><em>-- Technologies used: Node, Express, MongoDB, Mongoose, JavaScript, HTML, Bootstrap, Getty Images API --</em></h5>
+                    <h4 class="list-group-item-heading">User Stories to implement:</h4>
+                    <blockquote>
+                        <ul class = "list-group">
+                            <a href="#" class="list-group-item list-group-item-success">I can get the image URLs, alt text and page urls for a set of images relating to a given search string.</a>
+                            <a href="#" class="list-group-item list-group-item-success">I can paginate through the responses by adding a ?offset=2 parameter to the URL.</a>
+                            <a href="#" class="list-group-item list-group-item-success">I can get a list of the most recently submitted search strings.</a>
+                        </ul>
+                    </blockquote>
+                
+                </div>
+            </div>
+            <div class = "row text-center form">
+                <div class = "col-lg-12">
+                    <h4>Please, enter your query in the box bellow</h4>
+                    <form action="/new" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="userQuery" placeholder="type anything you like...">
+                        </div>
+                        <button type="submit" class="btn btn-info">Search for images here!</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                    <h4>Usage:</h4>
+                    <ul>
+                        <li><code>https://freecodecamp-projects-villian79.c9users.io/api/imagesearch/[YOUR QUERY]</code>
+                            <small>After replacing [YOUR QUERY] with your search string, 
+                                    you will receive a JSON output containing 10 images that match your criteria.
+                                    Example: https://freecodecamp-projects-villian79.c9users.io/api/imagesearch/dogs</small>
+                        </li>
+                        <li><code>https://freecodecamp-projects-villian79.c9users.io/api/imagesearch/[YOUR QUERY]?offset=[2]</code>
+                            <small>After replacing [YOUR QUERY] with your search string and specifying an optional ?offset=[ANY NUMBER] parameter,
+                                    you will receive a JSON output containing 10 images that match your criteria AND are located on [ANY NUMBER] page. 
+                                    Example: https://freecodecamp-projects-villian79.c9users.io/api/imagesearch/dogs?offset=3</small>
+                        </li>
+                         <li><code>https://freecodecamp-projects-villian79.c9users.io/api/recentsearches</code>
+                            <small>Visit this page in order to see all the recent search results</small>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row text-center">
+                 <footer>
+                    <p><a href="https://github.com/Villian79/URL-Shortener-Microservice.git" target="blank"><i class="fa fa-github fa-2x"></i> Find this project on GitHub</a></p>
+                    <p>Created by: Igor Vilinchuk</p>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
